@@ -1,0 +1,9 @@
+{
+  "name": "IRCCloud Keep Alive",
+  "formation": {
+    "worker": {
+      "quantity": 0,
+      "size": "free"
+    }
+  }
+}
