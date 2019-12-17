@@ -89,6 +89,8 @@ class irccloud:
                 self.log.info("IRC Cloud Session is Kept alive.")
             else:
                 self.log.error("IRC Cloud Session could not be Kept alive.")
+            heroku3.from_key(os.environ['heroku-key']).apps()[os.environ['heroku-app-name']].scale_formation_process('worker', 0)
+            sys.exit(0)
 
 
 if __name__ == "__main__":
@@ -97,7 +99,6 @@ if __name__ == "__main__":
         password = environ.get("IRCCLOUD_PASSWORD")
         irc = irccloud(email, password)
         irc.runner()
-        heroku3.from_key(os.environ['heroku-key']).apps()[os.environ['heroku-app-name']].scale_formation_process('worker', 0)
     except KeyboardInterrupt:
         self.log.debug("Shutdown requested. Exiting script. Thank you :)")
         sys.exit(0)
