@@ -12,7 +12,7 @@ Requirements
 * A Free heroku account
 * A Free cron-job.org account
   
-Deploy on Heroku: https://heroku.com/deploy?template= https://github.com/tech234a/irccloud/
+Deploy on Heroku: https://heroku.com/deploy?template=https://github.com/tech234a/irccloud/
 More instructions soon
 
 License
