@@ -10,6 +10,7 @@ import sys
 import traceback
 import logging
 from os import environ
+import os
 import heroku3
 
 class irccloud:
