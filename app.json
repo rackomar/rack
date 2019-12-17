@@ -4,6 +4,7 @@
     "worker": {
       "quantity": 0,
       "size": "free"
-    }
+    },
+  "env": {"heroku-key", "heroku-app-name", "IRCCLOUD-USERNAME", "IRCCLOUD-PASSWORD"},
   }
 }
