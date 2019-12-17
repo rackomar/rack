@@ -6,5 +6,5 @@
       "size": "free"
     },
   },
-  "env": {"heroku-key", "heroku-app-name", "IRCCLOUD-USERNAME", "IRCCLOUD-PASSWORD"},
+  "env": {"heroku-key": {}, "heroku-app-name": {}, "IRCCLOUD-USERNAME": {}, "IRCCLOUD-PASSWORD": {}},
 }
