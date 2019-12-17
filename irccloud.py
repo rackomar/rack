@@ -10,8 +10,8 @@ import sys
 import traceback
 import logging
 from os import environ
-import os
 import heroku3
+from time import sleep
 
 class irccloud:
     """
@@ -90,7 +90,8 @@ class irccloud:
                 self.log.info("IRC Cloud Session is Kept alive.")
             else:
                 self.log.error("IRC Cloud Session could not be Kept alive.")
-            heroku3.from_key(os.environ['heroku-key']).apps()[os.environ['heroku-app-name']].scale_formation_process('worker', 0)
+            heroku3.from_key(environ['heroku-key']).apps()[environ['heroku-app-name']].scale_formation_process('worker', 0)
+            sleep(5)
             sys.exit(0)
 
 
