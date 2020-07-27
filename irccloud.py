@@ -68,7 +68,7 @@ class irccloud:
         stream_url = "https://www.irccloud.com/chat/stream"
         headers = {"Connection" : "keep-alive",
                    "Accept-Encoding" : "gzip,deflate,sdch",
-                   "User-Agent" : "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.19 (KHTML, like Gecko) Chrome/1.0.154.53 Safari/525.19",
+                   "User-Agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
                    "Cookie": "session={0}".format(irccloud.SessionId),
                    "Host":"www.irccloud.com"
         }
@@ -91,7 +91,7 @@ class irccloud:
             else:
                 self.log.error("IRC Cloud Session could not be Kept alive.")
             heroku3.from_key(environ['heroku-key']).apps()[environ['heroku-app-name']].scale_formation_process('worker', 0)
-            sleep(5)
+            sleep(1)
             sys.exit(0)
 
 
