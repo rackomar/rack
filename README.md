@@ -6,6 +6,8 @@ This script is forked from the version made by [vijaiaeroastro](https://github.c
 This code uses IRCCloud's [publicly-documented RPC API] (https://github.com/irccloud/irccloud-tools/wiki).
 While this script prevents IRCCloud disconnecting from IRC servers after 120 minutes of inactivity, it does not provide access to any other of the numerous features that are available in the [Pro version of IRCCloud](https://www.irccloud.com/pricing). Please support them if you can!
 
+**IMPORTANT: This utility should not be used for critically-important connections. IRCCloud may still occasionally disconnect users, causing messages to be missed, even if this tool is used.**
+
 Requirements
 ============
 * A free or pro IRCCloud account
