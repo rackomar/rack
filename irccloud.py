@@ -27,7 +27,7 @@ class irccloud:
         self.email = email
         self.password = password
         self.debugging = debug_mode
-        logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s', level=logging.INFO)
+        logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s', level=logging.DEBUG)
         self.log = logging.getLogger(__name__)
 
     def get_authentication_token(self):
