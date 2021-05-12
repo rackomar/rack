@@ -1,4 +1,7 @@
 # IRCCloud Keep Alive Utility
+
+## NOTICE: This branch does not work, use the `master` branch instead.
+
 A simple Heroku application to keep your IRCCloud connection always active!
 
 This script is forked from the version made by [vijaiaeroastro](https://github.com/vijaiaeroastro/irccloud). Unlike that version, this fork does not require Heroku credit card verification or command line tool installation or usage. This fork can be completely deployed and configured from the browser. This version also runs on Python 3.8.6 and uses the current versions of all modules. In addition, instead of editing code files, this fork uses Heroku config vars to store your IRCCloud credentials.
