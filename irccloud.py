@@ -7,6 +7,7 @@ import ssl
 import websockets
 
 ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+ssl_context.load_verify_locations(requests.certs.where()) # use requests certificate store for the websocket connection
 
 async def activate_socket():
     uri = "wss://api.irccloud.com/"
