@@ -12,7 +12,7 @@ ssl_context.load_verify_locations(requests.certs.where()) # use requests certifi
 async def activate_socket():
     uri = "wss://api-5.irccloud.com/websockets/5?exclude_archives=1"
     async with websockets.connect(
-        uri, ssl=ssl_context, extra_headers=(("origin", "https://api.irccloud.com"))
+        uri, ssl=ssl_context, extra_headers=[("origin", "https://api.irccloud.com")]
     ) as websocket:
 
         await websocket.recv()
