@@ -219,8 +219,8 @@ func die(message string) {
 }
 
 func main() {
-	email := flag.String("email", "", "irccloud email")
-	password := flag.String("password", "", "irccloud password")
+	email := flag.String("EMAIL", "", "irccloud email")
+	password := flag.String("PASSWORD", "", "irccloud password")
 	forever := flag.Bool("forever", false, "run forever, will sleep for one hour after each iteration")
 	flen.SetEnvPrefix("IRCCLOUD")
 	flen.Parse()
