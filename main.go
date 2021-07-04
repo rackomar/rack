@@ -2,18 +2,14 @@ package main
 
 import (
 	"encoding/json"
-	"flag"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"net/url"
 	"os"
 	"strings"
-	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/osm/flen"
 )
 
 const userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36"
@@ -219,35 +215,27 @@ func die(message string) {
 }
 
 func main() {
-	email := flag.String("USERNAME", "", "irccloud email")
-	password := flag.String("PASSWORD", "", "irccloud password")
-	forever := flag.Bool("forever", false, "run forever, will sleep for one hour after each iteration")
-	flen.SetEnvPrefix("IRCCLOUD")
-	flen.Parse()
+	email := os.Getenv("IRCCLOUD_USERNAME")
+	password := os.Getenv("IRCCLOUD_PASSWORD")
+	heroku_app_name := os.Getenv("heroku-app-name")
+	heroku_key := os.Getenv("heroku-key")
 
 	if *email == "" {
-		die("-email is required")
+		die("IRCCLOUD_USERNAME is required")
 	}
 	if *password == "" {
-		die("-password is required")
+		die("IRCCLOUD_PASSWORD is required")
+	}
+	if *heroku_app_name == "" {
+		die("heroku-app-name is required")
+	}
+	if *heroku_key == "" {
+		die("heroku-key is required")
 	}
 
-	if !*forever {
-		err := keepAlive(*email, *password)
-		if err != nil {
-			die(err.Error())
-		}
-		return
+	err := keepAlive(*email, *password)
+	if err != nil {
+		die(err.Error())
 	}
-
-	for {
-		err := keepAlive(*email, *password)
-		if err != nil {
-			log.Printf("keep alive error: %v", err)
-		} else {
-			log.Printf("successfully kept connection alive")
-		}
-
-		time.Sleep(time.Hour * 1)
-	}
+	return
 }
