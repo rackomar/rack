@@ -220,20 +220,20 @@ func main() {
 	heroku_app_name := os.Getenv("heroku-app-name")
 	heroku_key := os.Getenv("heroku-key")
 
-	if *email == "" {
+	if email == "" {
 		die("IRCCLOUD_USERNAME is required")
 	}
-	if *password == "" {
+	if password == "" {
 		die("IRCCLOUD_PASSWORD is required")
 	}
-	if *heroku_app_name == "" {
+	if heroku_app_name == "" {
 		die("heroku-app-name is required")
 	}
-	if *heroku_key == "" {
+	if heroku_key == "" {
 		die("heroku-key is required")
 	}
 
-	err := keepAlive(*email, *password)
+	err := keepAlive(email, password)
 	if err != nil {
 		die(err.Error())
 	}
