@@ -1,2 +1,1 @@
-worker: python3 irccloud.py
-
+worker: bin/main

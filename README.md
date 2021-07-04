@@ -1,7 +1,7 @@
 # IRCCloud Keep Alive Utility
 A simple Heroku application to keep your IRCCloud connection always active!
 
-This script is forked from the version made by [vijaiaeroastro](https://github.com/vijaiaeroastro/irccloud). Unlike that version, this fork does not require Heroku credit card verification or command line tool installation or usage. This fork can be completely deployed and configured from the browser. This version also runs on Python 3.8.6 and uses the current versions of all modules. In addition, instead of editing code files, this fork uses Heroku config vars to store your IRCCloud credentials.
+This script is based on the version made by [osm](https://github.com/osm/icka/). Unlike that version, this fork can be completely deployed to and configured for Heroku from the browser. Heroku config vars are used to store your IRCCloud credentials.
 
 This code uses IRCCloud's [publicly-documented RPC API] (https://github.com/irccloud/irccloud-tools/wiki).
 While this script prevents IRCCloud disconnecting from IRC servers after 120 minutes of inactivity, it does not provide access to any other of the numerous features that are available in the [Pro version of IRCCloud](https://www.irccloud.com/pricing). Please support them if you can!

@@ -222,7 +222,7 @@ func main() {
 	email := flag.String("email", "", "irccloud email")
 	password := flag.String("password", "", "irccloud password")
 	forever := flag.Bool("forever", false, "run forever, will sleep for one hour after each iteration")
-	flen.SetEnvPrefix("ICKA")
+	flen.SetEnvPrefix("IRCCLOUD")
 	flen.Parse()
 
 	if *email == "" {
