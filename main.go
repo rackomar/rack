@@ -209,6 +209,7 @@ func keepAlive(email, password string) error {
 		return fmt.Errorf("auth websocket request failed")
 	}
 
+	fmt.Println("Successfully kept IRCCloud session alive!")
 	return nil
 }
 
