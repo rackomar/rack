@@ -1,1 +1,1 @@
-worker: bin/icka
+worker: bin/irccloud
