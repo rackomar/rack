@@ -236,13 +236,13 @@ func die(message string) {
 }
 
 func main() {
-	email := os.Getenv("IRCCLOUD_USERNAME")
+	email := os.Getenv("IRCCLOUD_EMAIL")
 	password := os.Getenv("IRCCLOUD_PASSWORD")
 	heroku_app_name := os.Getenv("heroku-app-name")
 	heroku_key := os.Getenv("heroku-key")
 
 	if email == "" {
-		die("IRCCLOUD_USERNAME is required")
+		die("IRCCLOUD_EMAIL is required")
 	}
 	if password == "" {
 		die("IRCCLOUD_PASSWORD is required")

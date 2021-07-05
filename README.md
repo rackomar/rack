@@ -23,7 +23,7 @@ Detailed Setup Instructions
 2. Sign up for or log into Heroku.
 3. Choose an app name on Heroku. It doesn't really matter what it is, but I wouldn't recommend making it a perfect name as you won't be entering it once you automate the application's execution. Enter this name into the "App name" field and the `heroku-app-name` config var.
 4. Create a [new authorization token](https://dashboard.heroku.com/account/applications/authorizations/new). Leave the expiration field blank. Once again, it doesn't matter what you description you provide for it. Fill it into the `heroku-key` config var.
-5. Fill out the `IRCCLOUD_PASSWORD` and `IRCCLOUD_USERNAME` config vars. This is required to authenticate with IRCCloud and send a signal indicating an active client. While I understand some people might be reluctant to enter their credentials, [Heroku does actually recommend using config vars for storing data encryption keys](https://devcenter.heroku.com/articles/getting-started-with-python#define-config-vars).
+5. Fill out the `IRCCLOUD_PASSWORD` and `IRCCLOUD_EMAIL` config vars. This is required to authenticate with IRCCloud and send a signal indicating an active client. While I understand some people might be reluctant to enter their credentials, [Heroku does actually recommend using config vars for storing data encryption keys](https://devcenter.heroku.com/articles/getting-started-with-python#define-config-vars).
 6. Go to [cron-job.org](https://cron-job.org/) and [sign up](https://cron-job.org/signup/) for or [log into](https://cron-job.org/members/) an account.
 7. Go to the Members page and then to the Cronjobs tab. [Create a new cron job](https://cron-job.org/members/jobs/add/).
 8. The title of the job does not matter.
