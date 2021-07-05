@@ -223,6 +223,7 @@ func heroku_shutdown(heroku_app_name, heroku_key string) error {
 	_, err := h.FormationUpdate(context.Background(), heroku_app_name, "worker", hdes)
 	if err != nil {
 		fmt.Println("error " + heroku_app_name + " " + err.Error())
+		return err
 	}
 	time.Sleep(1 * time.Second)
 	return nil
