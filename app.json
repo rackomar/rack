@@ -1,5 +1,6 @@
 {
   "name": "IRCCloud Keep Alive",
+  "description": "A simple Heroku application to keep your IRCCloud connection active!",
   "formation": {
     "worker": {
       "quantity": 0,

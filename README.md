@@ -1,6 +1,6 @@
 # IRCCloud Keep Alive Utility
 
-A simple Heroku application to keep your IRCCloud connection always active!
+A simple Heroku application to keep your IRCCloud connection active!
 
 This script is based on the version made by [osm](https://github.com/osm/icka/). Unlike that version, this fork can be completely deployed to and configured for Heroku from the browser. Heroku config vars are used to store your IRCCloud credentials.
 
