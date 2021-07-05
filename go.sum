@@ -9,7 +9,5 @@ github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/ad
 github.com/heroku/heroku-go/v5 v5.3.0 h1:Tnm+IJZEhtaWN4BfWJeEB2dzMYvkQBN+oeeGOXGFO54=
 github.com/heroku/heroku-go/v5 v5.3.0/go.mod h1:d+1QrZyjbnQJG1f8xIoVvMQRFLt3XRVZOdlm26Sr73U=
 github.com/interagent/schematic v0.0.0-20180830170528-b5e8ba7aa570/go.mod h1:4X9u5iNUePRrRDdwjok6skjlQBXTcNfWa4C3uS1+5SQ=
-github.com/osm/flen v1.0.0 h1:sicNUteUA8L/mRL1mw470YZ1nxX6TjZ1R37c5/hSqb8=
-github.com/osm/flen v1.0.0/go.mod h1:iEnnCNqUz0Nr10JEm7rXvGV/Afd/U6CLvblpFtUjbPw=
 github.com/pborman/uuid v1.2.0 h1:J7Q5mO4ysT1dv8hyrUGHb9+ooztCXu1D8MY8DZYsu3g=
 github.com/pborman/uuid v1.2.0/go.mod h1:X/NO0urCmaxf9VXbdlT7C2Yzkj2IKimNn4k+gtPdI/k=
