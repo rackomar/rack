@@ -3,13 +3,13 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/gorilla/websocket"
 	heroku "github.com/heroku/heroku-go/v5"
@@ -217,26 +217,15 @@ func heroku_shutdown(heroku_app_name, heroku_key string) error {
 
 	h := heroku.NewService(heroku.DefaultClient)
 
-	// From https://github.com/jflamy/owlcms4-heroku-updater/blob/4856478fdfffe74c6837818b2fb66b73548f56c4/src/updater.go#L85-L94
-	apps, err := h.AppList(context.Background(), nil)
+	qdes := 0
+	hdes := heroku.FormationUpdateOpts{Quantity: &qdes}
+
+	_, err := h.FormationUpdate(context.Background(), heroku_app_name, "worker", hdes)
 	if err != nil {
-		return err
+		fmt.Println("error " + heroku_app_name + " " + err.Error())
 	}
-	for _, app := range apps {
-
-		if app.Name == heroku_app_name {
-			qdes := 0
-			hdes := heroku.FormationUpdateOpts{Quantity: &qdes}
-
-			_, err := h.FormationUpdate(context.Background(), app.Name, "worker", hdes)
-			if err != nil {
-				fmt.Println("error " + app.Name + " " + err.Error())
-			}
-			return nil
-		}
-	}
-
-	return errors.New("heroku app not found")
+	time.Sleep(1 * time.Second)
+	return nil
 }
 
 func die(message string) {
