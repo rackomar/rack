@@ -37,12 +37,6 @@ Detailed Setup Instructions
   - `Content-Type`: `application/json`
   - `Accept`: `application/vnd.heroku+json; version=3`
   - `Authorization`: `Bearer [Heroku authorization token]` where `[Heroku authorization token]` is the authorization token you created earlier.
-16. Enter the following for "Request body": ```
-    {"updates": [{
-					"quantity": 1,
-					"type": "worker"
-				}
-			]
-		}```
+16. Enter the following for "Request body": ```{ "updates": [ { "quantity": 1, "type": "worker" } ] }```
 17. Ensure "Enable cronjob" is checked.
 18. Click "Save", and you're done!
