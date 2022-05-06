@@ -4,10 +4,12 @@ A simple Heroku application to keep your IRCCloud connection active!
 
 This script is based on the version made by [osm](https://github.com/osm/icka/). Unlike that version, this fork can be completely deployed to and configured for Heroku from the browser. Heroku config vars are used to store your IRCCloud credentials.
 
-This code uses IRCCloud's [publicly-documented RPC API] (https://github.com/irccloud/irccloud-tools/wiki).
+This code uses IRCCloud's [publicly-documented RPC API](https://github.com/irccloud/irccloud-tools/wiki).
 While this script prevents IRCCloud disconnecting from IRC servers after 120 minutes of inactivity, it does not provide access to any other of the numerous features that are available in the [Pro version of IRCCloud](https://www.irccloud.com/pricing). Please support them if you can!
 
 **IMPORTANT: This utility should not be used for critically-important connections. IRCCloud may still occasionally disconnect users, causing messages to be missed, even if this tool is used.**
+
+**:star:MAY 2022 UPDATE: Due to Heroku resetting user passwords and API tokens, existing users may need to perform a few one-time steps to that the script continues to execute automatically each hour. See [issue #2](https://github.com/tech234a/irccloud/issues/2) for details.:star:**
 
 Requirements
 ============
