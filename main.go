@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -9,13 +8,11 @@ import (
 	"net/url"
 	"os"
 	"strings"
-	"time"
 
 	"github.com/gorilla/websocket"
-	heroku "github.com/heroku/heroku-go/v5"
 )
 
-const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
 
 type AuthTokenResponse struct {
 	Token   string `json:"token"`
@@ -94,7 +91,7 @@ func wsClient(host, path string) (*websocket.Conn, error) {
 func getAuthToken() (*AuthTokenResponse, error) {
 	resp, err := httpRequest(
 		"POST",
-		"https://www.irccloud.com/chat/auth-formtoken",
+		"https://api-3.irccloud.com/chat/auth-formtoken",
 		nil,
 		map[string]string{
 			"User-Agent": userAgent,
@@ -213,23 +210,6 @@ func keepAlive(email, password string) error {
 	return nil
 }
 
-func heroku_shutdown(heroku_app_name, heroku_key string) error {
-	heroku.DefaultTransport.BearerToken = heroku_key
-
-	h := heroku.NewService(heroku.DefaultClient)
-
-	qdes := 0
-	hdes := heroku.FormationUpdateOpts{Quantity: &qdes}
-
-	_, err := h.FormationUpdate(context.Background(), heroku_app_name, "worker", hdes)
-	if err != nil {
-		fmt.Println("error " + heroku_app_name + " " + err.Error())
-		return err
-	}
-	time.Sleep(1 * time.Second)
-	return nil
-}
-
 func die(message string) {
 	fmt.Fprintf(os.Stderr, message+"\n")
 	os.Exit(1)
@@ -238,8 +218,6 @@ func die(message string) {
 func main() {
 	email := os.Getenv("IRCCLOUD_EMAIL")
 	password := os.Getenv("IRCCLOUD_PASSWORD")
-	heroku_app_name := os.Getenv("heroku-app-name")
-	heroku_key := os.Getenv("heroku-key")
 
 	if email == "" {
 		die("IRCCLOUD_EMAIL is required")
@@ -247,21 +225,9 @@ func main() {
 	if password == "" {
 		die("IRCCLOUD_PASSWORD is required")
 	}
-	if heroku_app_name == "" {
-		die("heroku-app-name is required")
-	}
-	if heroku_key == "" {
-		die("heroku-key is required")
-	}
 
 	err := keepAlive(email, password)
 	if err != nil {
 		die(err.Error())
 	}
-
-	errh := heroku_shutdown(heroku_app_name, heroku_key)
-	if errh != nil {
-		die(errh.Error())
-	}
-
 }
