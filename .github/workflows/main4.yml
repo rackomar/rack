@@ -1,4 +1,4 @@
-name: red
+name: orange
 on:
   workflow_dispatch:
 
