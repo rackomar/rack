@@ -38,4 +38,3 @@ jobs:
         IRCCLOUD_EMAIL: ${{secrets.IRCCLOUD_EMAIL3}}
         IRCCLOUD_PASSWORD: ${{secrets.IRCCLOUD_PASSWORD3}}
       run: ./main
- 
