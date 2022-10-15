@@ -1,0 +1,40 @@
+name: mauve
+on:
+  workflow_dispatch:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Cache binary
+      id: cache-binary
+      uses: actions/cache@v3
+      env:
+        cache-name: cache-binary
+      with:
+        path: .
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.sha }}
+    
+    - if: ${{ steps.cache-binary.outputs.cache-hit != 'true' }}
+      name: Checkout
+      uses: actions/checkout@v3
+
+    - if: ${{ steps.cache-binary.outputs.cache-hit != 'true' }}
+      name: Initial setup
+      uses: actions/setup-go@v3
+      with:
+        go-version: '>=1.19.0'
+        check-latest: true
+        cache: true
+      
+    - if: ${{ steps.cache-binary.outputs.cache-hit != 'true' }}
+      name: Build
+      run: go build main.go
+    
+    - name: Run file
+      env:
+        IRCCLOUD_EMAIL: ${{secrets.IRCCLOUD_EMAIL28}}
+        IRCCLOUD_PASSWORD: ${{secrets.IRCCLOUD_PASSWORD28}}
+      run: ./main
