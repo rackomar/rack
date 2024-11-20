@@ -12,7 +12,7 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko/20100101 Firefox/130.0"
+const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
 type AuthTokenResponse struct {
 	Token   string `json:"token"`
